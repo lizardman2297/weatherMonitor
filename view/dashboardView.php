@@ -23,14 +23,19 @@
 				<?php 
 
 				    foreach ($sensorList as $value) {
+				        $date = date_create(getValuesOfSensor($value->getId())->date);
+				        $date = date_format($date, 'H:i:s - d/m/Y')
 				?>
     				<div class="block sensor">
     					<div class="title">
     						<?php echo $value->getName() ?> - <span class="desc"><?php echo $value->getDesc() ?></span>
 						</div>
     					<div class="values">
+    						<div class="progress">
+    							<div class="myBar"></div>
+    						</div>
     						<?php echo "Values -> " . getValuesOfSensor($value->getId())->value . getUnite($value->getUnite())->libelle ;
-    						      echo "</br>Last update -> " . getValuesOfSensor($value->getId())->date ;
+    						echo "</br>Last update -> " . $date ;
 					        ?>
 						</div>
     				</div>
@@ -43,7 +48,18 @@
 		</div>
 	
 		<div id="right">
+			Information de connection : 
 			
+			<?php 
+			foreach ($sensorList as $value) {
+			    ?>
+				<div class="info">
+					<?php echo $value->getName() ?> <i class="fa-solid fa-arrow-right"></i> <i class="fa-solid fa-wifi online"></i>
+				</div>
+					
+				<?php 
+				    }
+			?>
 		</div>
 
 	</section>

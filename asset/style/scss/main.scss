@@ -1,23 +1,30 @@
 // Variable
 
 $base : #202124;
+$baseDarker : #2b2b2b;
+$baseLighter: #282a2e;
 $greenAccent : #52c841;
+$shadow : #7d7d7d;
+$bleu : rgb(10, 192, 245);
 
 * {
 	padding: 0;
 	margin: 0;
+	color : #fff;
 }
 
 // navBar 
 .navbar {
-	//position: fixed;
+	position: fixed;
+	z-index: 100;
 	width: 100%;
 	top: 0;
-	background-color: #ebebeb;
+	background-color: $base;
 	height: 50px;
-	box-shadow: 0px 0px 10px rgb(10, 192, 245);
 	margin-bottom: 10px;
+	
 	ul {
+		height: 50px;
 	    list-style: none;
 	    padding: 0;
 	    margin: 0;
@@ -35,19 +42,24 @@ section {
     flex-direction: row;
 	padding-top: 50px;
 	color: #fff;
+	height: calc(100vh - 50px);
+	overflow-y: hidden;
 
 	
 	//left
 	#left {
 		width: 15%;
-		background-color: red;
-		padding-left:10px;
+		background-color: $base;
+		padding:10px 0 0 10px;
+	    box-shadow: $shadow -3px 0px 17px 0px;
+		z-index: 10;
 	}
 	
 	//main
 	#center {
 		width: 70%;
-		background-color: orange;
+		background-color: $baseLighter;
+		padding:10px 0 0 0;
         #sensor {
 			display: flex;
 		    flex-direction: row;
@@ -64,14 +76,26 @@ section {
 			    border-radius: 30px;
 			    box-sizing: border-box;
 			    padding: 15px;
-			    box-shadow: 5px 6px 20px -10px lime;
+			    box-shadow: 5px 6px 20px -10px #000;
 			    margin: 15px;
 				.title{
 					height: 25%;
 					text-align: center;
 				}
 				.values {
-					color: red;
+					color: $bleu;
+					.progress {
+					  width: 100%;
+					  background-color: grey;
+					.myBar {
+						text-align: center;
+					  	width: 1%;
+					 	height: 30px;
+					  	background-color: green;
+					}
+					}
+					
+					
 				}
             }
         }
@@ -80,7 +104,18 @@ section {
 	//right
 	#right {
 		width: 15%;
-		background-color: red;
-		padding-left:10px;
+		background-color: $base;
+		box-shadow: $shadow 3px 0px 17px 0px;
+		z-index: 10;
+		padding:10px 0 0 10px;
+		.info {
+			margin: 10px 0;
+			.offline{
+				color: red;
+			}
+			.online {
+				color: green;
+			}
+		}
 	}
 }

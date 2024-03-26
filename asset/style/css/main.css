@@ -1,17 +1,20 @@
 * {
   padding: 0;
   margin: 0;
+  color: #fff;
 }
 
 .navbar {
+  position: fixed;
+  z-index: 100;
   width: 100%;
   top: 0;
-  background-color: #ebebeb;
+  background-color: #202124;
   height: 50px;
-  box-shadow: 0px 0px 10px #0ac0f5;
   margin-bottom: 10px;
 }
 .navbar ul {
+  height: 50px;
   list-style: none;
   padding: 0;
   margin: 0;
@@ -27,15 +30,20 @@ section {
   flex-direction: row;
   padding-top: 50px;
   color: #fff;
+  height: calc(100vh - 50px);
+  overflow-y: hidden;
 }
 section #left {
   width: 15%;
-  background-color: red;
-  padding-left: 10px;
+  background-color: #202124;
+  padding: 10px 0 0 10px;
+  box-shadow: #7d7d7d -3px 0px 17px 0px;
+  z-index: 10;
 }
 section #center {
   width: 70%;
-  background-color: orange;
+  background-color: #282a2e;
+  padding: 10px 0 0 0;
 }
 section #center #sensor {
   display: flex;
@@ -53,7 +61,7 @@ section #center #sensor .block {
   border-radius: 30px;
   box-sizing: border-box;
   padding: 15px;
-  box-shadow: 5px 6px 20px -10px lime;
+  box-shadow: 5px 6px 20px -10px #000;
   margin: 15px;
 }
 section #center #sensor .block .title {
@@ -61,12 +69,33 @@ section #center #sensor .block .title {
   text-align: center;
 }
 section #center #sensor .block .values {
-  color: red;
+  color: #0ac0f5;
+}
+section #center #sensor .block .values .progress {
+  width: 100%;
+  background-color: grey;
+}
+section #center #sensor .block .values .progress .myBar {
+  text-align: center;
+  width: 1%;
+  height: 30px;
+  background-color: green;
 }
 section #right {
   width: 15%;
-  background-color: red;
-  padding-left: 10px;
+  background-color: #202124;
+  box-shadow: #7d7d7d 3px 0px 17px 0px;
+  z-index: 10;
+  padding: 10px 0 0 10px;
+}
+section #right .info {
+  margin: 10px 0;
+}
+section #right .info .offline {
+  color: red;
+}
+section #right .info .online {
+  color: green;
 }
 
 /*# sourceMappingURL=main.css.map */
